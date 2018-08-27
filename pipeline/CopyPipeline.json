@@ -1,0 +1,104 @@
+{
+	"name": "CopyPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_cy5",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "sampledata/parttbl3/"
+					},
+					{
+						"name": "Destination",
+						"value": "[dbo].[H_Part]"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"writeBatchSize": 10000,
+						"preCopyScript": "truncate table H_Part",
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Prop_0": "p_partkey",
+							"Prop_1": "p_name",
+							"Prop_2": "p_mfgr",
+							"Prop_3": "p_brand",
+							"Prop_4": "p_type",
+							"Prop_5": "p_size",
+							"Prop_6": "p_container",
+							"Prop_7": "p_retailprice",
+							"Prop_8": "p_comment"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_cy5",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_cy5",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Copy_cy5",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "SqlDWSource",
+						"sqlReaderQuery": "select count(*) from H_Part"
+					},
+					"dataset": {
+						"referenceName": "DestinationDataset_cy5",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
