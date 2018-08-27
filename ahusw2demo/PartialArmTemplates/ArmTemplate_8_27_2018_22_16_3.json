@@ -6,34 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory Name",
 			"defaultValue": "ahusw2demo"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
-		"AzureSqlDW_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDW'"
-		},
-		"AzureSqlDW1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDW1'"
-		},
-		"AzureBlob1_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": ""
-		},
-		"AzureBlob1_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "sampledata/parttbl3"
-		},
-		"SourceDataset_cy5_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": ""
-		},
-		"SourceDataset_cy5_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "sampledata/parttbl3"
 		}
 	},
 	"variables": {
@@ -49,7 +21,6 @@
 					{
 						"name": "Copy_cy5",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -103,15 +74,13 @@
 						"inputs": [
 							{
 								"referenceName": "SourceDataset_cy5",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "DestinationDataset_cy5",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -133,7 +102,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "SqlDWSource",
@@ -141,14 +109,12 @@
 							},
 							"dataset": {
 								"referenceName": "DestinationDataset_cy5",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							},
 							"firstRowOnly": false
 						}
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_cy5')]",
@@ -164,7 +130,6 @@
 					{
 						"name": "Copy Data1",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -172,7 +137,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -209,20 +173,17 @@
 						"inputs": [
 							{
 								"referenceName": "AzureBlob1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureSqlDWTable1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/AzureBlob1')]",
@@ -238,7 +199,6 @@
 					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureBlob",
 				"structure": [
 					{
@@ -288,13 +248,10 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('AzureBlob1_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('AzureBlob1_properties_typeProperties_folderPath')]"
+					"fileName": "",
+					"folderPath": "sampledata/parttbl3"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlDWTable1')]",
@@ -305,7 +262,6 @@
 					"referenceName": "AzureSqlDW1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureSqlDWTable",
 				"structure": [
 					{
@@ -348,10 +304,7 @@
 				"typeProperties": {
 					"tableName": "[concat('[', 'dbo].[H_Part]')]"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDW1')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DestinationDataset_cy5')]",
@@ -362,7 +315,6 @@
 					"referenceName": "AzureSqlDW",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureSqlDWTable",
 				"structure": [
 					{
@@ -405,10 +357,7 @@
 				"typeProperties": {
 					"tableName": "[concat('[', 'dbo].[H_Part]')]"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDW')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_cy5')]",
@@ -419,7 +368,6 @@
 					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureBlob",
 				"structure": [
 					{
@@ -470,52 +418,10 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('SourceDataset_cy5_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('SourceDataset_cy5_properties_typeProperties_folderPath')]"
+					"fileName": "",
+					"folderPath": "sampledata/parttbl3"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDW')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDW",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDW_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDW1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDW",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDW1_connectionString')]"
-				}
-			},
-			"dependsOn": []
+			}
 		}
 	]
 }
