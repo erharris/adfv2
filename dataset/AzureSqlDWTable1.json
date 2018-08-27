@@ -1,0 +1,51 @@
+{
+	"name": "AzureSqlDWTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDW1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "p_partkey",
+				"type": "Int32"
+			},
+			{
+				"name": "p_name",
+				"type": "String"
+			},
+			{
+				"name": "p_mfgr",
+				"type": "String"
+			},
+			{
+				"name": "p_brand",
+				"type": "String"
+			},
+			{
+				"name": "p_type",
+				"type": "String"
+			},
+			{
+				"name": "p_size",
+				"type": "Int32"
+			},
+			{
+				"name": "p_container",
+				"type": "String"
+			},
+			{
+				"name": "p_retailprice",
+				"type": "Double"
+			},
+			{
+				"name": "p_comment",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[H_Part]"
+		}
+	}
+}
