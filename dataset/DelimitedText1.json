@@ -1,0 +1,436 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Storage_ehdevsa",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "traffic_volumes/VSDATA_2019",
+				"fileSystem": "sourcedata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "NB_SCATS_SITE",
+				"type": "String"
+			},
+			{
+				"name": "QT_INTERVAL_COUNT",
+				"type": "String"
+			},
+			{
+				"name": "NB_DETECTOR",
+				"type": "String"
+			},
+			{
+				"name": "V00",
+				"type": "String"
+			},
+			{
+				"name": "V01",
+				"type": "String"
+			},
+			{
+				"name": "V02",
+				"type": "String"
+			},
+			{
+				"name": "V03",
+				"type": "String"
+			},
+			{
+				"name": "V04",
+				"type": "String"
+			},
+			{
+				"name": "V05",
+				"type": "String"
+			},
+			{
+				"name": "V06",
+				"type": "String"
+			},
+			{
+				"name": "V07",
+				"type": "String"
+			},
+			{
+				"name": "V08",
+				"type": "String"
+			},
+			{
+				"name": "V09",
+				"type": "String"
+			},
+			{
+				"name": "V10",
+				"type": "String"
+			},
+			{
+				"name": "V11",
+				"type": "String"
+			},
+			{
+				"name": "V12",
+				"type": "String"
+			},
+			{
+				"name": "V13",
+				"type": "String"
+			},
+			{
+				"name": "V14",
+				"type": "String"
+			},
+			{
+				"name": "V15",
+				"type": "String"
+			},
+			{
+				"name": "V16",
+				"type": "String"
+			},
+			{
+				"name": "V17",
+				"type": "String"
+			},
+			{
+				"name": "V18",
+				"type": "String"
+			},
+			{
+				"name": "V19",
+				"type": "String"
+			},
+			{
+				"name": "V20",
+				"type": "String"
+			},
+			{
+				"name": "V21",
+				"type": "String"
+			},
+			{
+				"name": "V22",
+				"type": "String"
+			},
+			{
+				"name": "V23",
+				"type": "String"
+			},
+			{
+				"name": "V24",
+				"type": "String"
+			},
+			{
+				"name": "V25",
+				"type": "String"
+			},
+			{
+				"name": "V26",
+				"type": "String"
+			},
+			{
+				"name": "V27",
+				"type": "String"
+			},
+			{
+				"name": "V28",
+				"type": "String"
+			},
+			{
+				"name": "V29",
+				"type": "String"
+			},
+			{
+				"name": "V30",
+				"type": "String"
+			},
+			{
+				"name": "V31",
+				"type": "String"
+			},
+			{
+				"name": "V32",
+				"type": "String"
+			},
+			{
+				"name": "V33",
+				"type": "String"
+			},
+			{
+				"name": "V34",
+				"type": "String"
+			},
+			{
+				"name": "V35",
+				"type": "String"
+			},
+			{
+				"name": "V36",
+				"type": "String"
+			},
+			{
+				"name": "V37",
+				"type": "String"
+			},
+			{
+				"name": "V38",
+				"type": "String"
+			},
+			{
+				"name": "V39",
+				"type": "String"
+			},
+			{
+				"name": "V40",
+				"type": "String"
+			},
+			{
+				"name": "V41",
+				"type": "String"
+			},
+			{
+				"name": "V42",
+				"type": "String"
+			},
+			{
+				"name": "V43",
+				"type": "String"
+			},
+			{
+				"name": "V44",
+				"type": "String"
+			},
+			{
+				"name": "V45",
+				"type": "String"
+			},
+			{
+				"name": "V46",
+				"type": "String"
+			},
+			{
+				"name": "V47",
+				"type": "String"
+			},
+			{
+				"name": "V48",
+				"type": "String"
+			},
+			{
+				"name": "V49",
+				"type": "String"
+			},
+			{
+				"name": "V50",
+				"type": "String"
+			},
+			{
+				"name": "V51",
+				"type": "String"
+			},
+			{
+				"name": "V52",
+				"type": "String"
+			},
+			{
+				"name": "V53",
+				"type": "String"
+			},
+			{
+				"name": "V54",
+				"type": "String"
+			},
+			{
+				"name": "V55",
+				"type": "String"
+			},
+			{
+				"name": "V56",
+				"type": "String"
+			},
+			{
+				"name": "V57",
+				"type": "String"
+			},
+			{
+				"name": "V58",
+				"type": "String"
+			},
+			{
+				"name": "V59",
+				"type": "String"
+			},
+			{
+				"name": "V60",
+				"type": "String"
+			},
+			{
+				"name": "V61",
+				"type": "String"
+			},
+			{
+				"name": "V62",
+				"type": "String"
+			},
+			{
+				"name": "V63",
+				"type": "String"
+			},
+			{
+				"name": "V64",
+				"type": "String"
+			},
+			{
+				"name": "V65",
+				"type": "String"
+			},
+			{
+				"name": "V66",
+				"type": "String"
+			},
+			{
+				"name": "V67",
+				"type": "String"
+			},
+			{
+				"name": "V68",
+				"type": "String"
+			},
+			{
+				"name": "V69",
+				"type": "String"
+			},
+			{
+				"name": "V70",
+				"type": "String"
+			},
+			{
+				"name": "V71",
+				"type": "String"
+			},
+			{
+				"name": "V72",
+				"type": "String"
+			},
+			{
+				"name": "V73",
+				"type": "String"
+			},
+			{
+				"name": "V74",
+				"type": "String"
+			},
+			{
+				"name": "V75",
+				"type": "String"
+			},
+			{
+				"name": "V76",
+				"type": "String"
+			},
+			{
+				"name": "V77",
+				"type": "String"
+			},
+			{
+				"name": "V78",
+				"type": "String"
+			},
+			{
+				"name": "V79",
+				"type": "String"
+			},
+			{
+				"name": "V80",
+				"type": "String"
+			},
+			{
+				"name": "V81",
+				"type": "String"
+			},
+			{
+				"name": "V82",
+				"type": "String"
+			},
+			{
+				"name": "V83",
+				"type": "String"
+			},
+			{
+				"name": "V84",
+				"type": "String"
+			},
+			{
+				"name": "V85",
+				"type": "String"
+			},
+			{
+				"name": "V86",
+				"type": "String"
+			},
+			{
+				"name": "V87",
+				"type": "String"
+			},
+			{
+				"name": "V88",
+				"type": "String"
+			},
+			{
+				"name": "V89",
+				"type": "String"
+			},
+			{
+				"name": "V90",
+				"type": "String"
+			},
+			{
+				"name": "V91",
+				"type": "String"
+			},
+			{
+				"name": "V92",
+				"type": "String"
+			},
+			{
+				"name": "V93",
+				"type": "String"
+			},
+			{
+				"name": "V94",
+				"type": "String"
+			},
+			{
+				"name": "V95",
+				"type": "String"
+			},
+			{
+				"name": "NM_REGION",
+				"type": "String"
+			},
+			{
+				"name": "CT_RECORDS",
+				"type": "String"
+			},
+			{
+				"name": "QT_VOLUME_24HOUR",
+				"type": "String"
+			},
+			{
+				"name": "CT_ALARM_24HOUR",
+				"type": "String"
+			}
+		]
+	}
+}
