@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_g5y",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ehseaustore_blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "sampledata"
+			}
+		}
+	}
+}
