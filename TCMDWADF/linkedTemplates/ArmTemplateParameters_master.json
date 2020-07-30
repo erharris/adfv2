@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "TCMDWADF"
 		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": ""
+		},
 		"ehseaustore_blob_connectionString": {
 			"value": ""
 		},
