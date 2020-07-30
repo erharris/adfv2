@@ -1,0 +1,35 @@
+{
+	"name": "DestinationDataset_g7g",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "n_nationkey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "n_name",
+				"type": "char"
+			},
+			{
+				"name": "n_regionkey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "n_comment",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "H_Nation"
+		}
+	}
+}
